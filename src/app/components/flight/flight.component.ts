@@ -3,6 +3,8 @@ import { Component, OnInit ,ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Flight } from 'src/app/interfaces/flight';
 import { FlightService } from 'src/app/services/flight.service';
 
 @Component({
@@ -11,14 +13,16 @@ import { FlightService } from 'src/app/services/flight.service';
   styleUrls: ['./flight.component.scss']
 })
 export class FlightComponent implements OnInit {
-  displayedColumns: string[] = ['flightId', 'flightName', 'source', 'destination','departureDate','departureTime','arrivalDate','arrivalTime','stops','totalSeats','feedback','basePrice','action'];
+  displayedColumns: string[] = ['flightId', 'flightName', 'source', 'destination','departureDate','departureTime','arrivalDate','arrivalTime','stops','totalSeats','feedback','basePrice'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private http:HttpClient,private flightService:FlightService) { 
-    
+  constructor(private flightService:FlightService) { 
+    // , private route: Router,private router: ActivatedRoute
   }
+
+  flights: Flight[] = [];
 
   ngOnInit(): void {
     this.getAllFlights();
@@ -33,10 +37,11 @@ export class FlightComponent implements OnInit {
   }
   getAllFlights() {
     this.flightService.getAllFlights().subscribe({
-      next:(res) => {
-      this.dataSource = new MatTableDataSource(res);
+      next:(data) => {
+      this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      console.log(data);
     },
     error:(err) => {
       alert("Erorr while fetching the records!");
