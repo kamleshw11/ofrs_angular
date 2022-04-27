@@ -4,6 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { Flight } from 'src/app/interfaces/flight';
 import { FlightService } from 'src/app/services/flight.service';
 
@@ -19,14 +20,17 @@ export class FlightComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private flightService:FlightService) { 
-    // , private route: Router,private router: ActivatedRoute
+    
   }
 
   flights: Flight[] = [];
 
   ngOnInit(): void {
     this.getAllFlights();
+
   }
+     
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -35,6 +39,7 @@ export class FlightComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  
   getAllFlights() {
     this.flightService.getAllFlights().subscribe({
       next:(data) => {
@@ -45,6 +50,7 @@ export class FlightComponent implements OnInit {
     },
     error:(err) => {
       alert("Erorr while fetching the records!");
+     
     }
     });
   }
