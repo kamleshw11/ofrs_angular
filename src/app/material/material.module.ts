@@ -92,10 +92,7 @@ const material=[
   OverlayModule,
   PortalModule,
   ScrollingModule,
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatRippleModule
+  
   
 ];
 
