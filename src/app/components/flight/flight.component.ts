@@ -7,6 +7,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { Flight } from 'src/app/interfaces/flight';
 import { FlightService } from 'src/app/services/flight.service';
+import {MatDialog} from '@angular/material/dialog';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { AddFlightComponent } from '../add-flight/add-flight.component';
 
 @Component({
   selector: 'app-flight',
@@ -19,8 +23,16 @@ export class FlightComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private flightService:FlightService) { 
+  constructor(private flightService:FlightService,public dialog: MatDialog) { 
     
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(AddFlightComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   flights: Flight[] = [];

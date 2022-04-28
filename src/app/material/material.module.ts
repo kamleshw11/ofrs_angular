@@ -44,7 +44,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+ 
 const material=[
   CommonModule,
   A11yModule,
@@ -92,14 +92,17 @@ const material=[
   OverlayModule,
   PortalModule,
   ScrollingModule,
-]
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule
+  
+];
+
 @NgModule({
-  exports: [
-    material
-  ],
-  imports: [
-    material
-  ]
+ 
+  imports: [material],
+  exports: [material],
 }
 )
 export class MaterialModule {}

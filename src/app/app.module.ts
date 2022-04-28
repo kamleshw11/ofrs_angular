@@ -7,24 +7,34 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlightComponent } from './components/flight/flight.component';
-import { MaterialModule } from './material/material.module';
+
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { UserSearchFlightComponent } from './components/user-search-flight/user-search-flight.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material/material.module';
+import { AddFlightComponent } from './components/add-flight/add-flight.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FlightComponent
+    FlightComponent,
+    
+    UserSearchFlightComponent,
+    AddFlightComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MaterialModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
