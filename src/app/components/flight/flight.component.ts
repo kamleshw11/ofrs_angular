@@ -28,7 +28,9 @@ export class FlightComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(AddFlightComponent);
+    const dialogRef = this.dialog.open(AddFlightComponent,{
+      width:'60%'
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

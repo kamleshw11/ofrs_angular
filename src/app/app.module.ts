@@ -20,8 +20,7 @@ import { AddFlightComponent } from './components/add-flight/add-flight.component
   declarations: [
     AppComponent,
     NavbarComponent,
-    FlightComponent,
-    
+    FlightComponent,    
     UserSearchFlightComponent,
     AddFlightComponent
   ],
