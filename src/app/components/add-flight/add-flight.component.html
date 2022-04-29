@@ -2,58 +2,59 @@
 <div mat-dialog-content>
     <form [formGroup]="flightForm" >
         <mat-form-field appearance="outline">
+            <mat-label>Carrier</mat-label>
+            <input formControlName="carrier" matInput placeholder="Enter Carrier ">        
+        </mat-form-field>
+        <mat-form-field appearance="outline">
             <mat-label>Flight name</mat-label>
-            <input matInput placeholder="Enter Flight Name here">        
+            <input formControlName="flightName" matInput placeholder="Enter Flight Name ">        
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Source</mat-label>
-            <input matInput placeholder="Enter Departure point here">        
+            <input formControlName="source" matInput placeholder="Enter Departure point ">        
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Destination</mat-label>
-            <input matInput placeholder="Enter Arrival point here">        
+            <input formControlName="destination" matInput placeholder="Enter Arrival point ">        
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Departure Date</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input formControlName="departureDate" matInput [matDatepicker]="pickerDeparture">
+            <mat-hint>YYYY-MM-DD</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerDeparture"></mat-datepicker-toggle>
+            <mat-datepicker #pickerDeparture></mat-datepicker>
           </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Departure Time</mat-label>
-            <input matInput placeholder="Enter Departure Time here">        
+            <!-- <input pattern="^(2[0-3]|[01]?[0-9]):([0-5]?[0-9]):([0-5]?[0-9])$"  type="text" formControlName="departureTime" matInput placeholder="--:--:--">         -->
+            <input  type="time" step="1" formControlName="departureTime" matInput placeholder="--:--:--">        
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Arrival Date</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input formControlName="arrivalDate" matInput [matDatepicker]="pickerArrival">
+            <mat-hint>YYYY-MM-DD</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerArrival"></mat-datepicker-toggle>
+            <mat-datepicker #pickerArrival></mat-datepicker>
           </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Arrival Time</mat-label>
-            <input matInput placeholder="Enter Arrival Time here">        
+            <input matInput type="text" formControlName="arrivalTime" matInput placeholder="--:--:--">        
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>No of Stops </mat-label>
-            <input matInput placeholder="Enter no of stops here">        
+            <input type="number" formControlName="stops" matInput placeholder="Enter no of stops ">        
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Seats Capacity</mat-label>
-            <input matInput type="number" placeholder="Enter total seats capacity  here">        
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Feedback</mat-label>
-            <textarea matInput></textarea>        
-        </mat-form-field>
+            <input type="number" formControlName="totalSeats" matInput  placeholder="Enter total seats capacity  ">        
+        </mat-form-field>        
         <mat-form-field appearance="outline">
             <mat-label>Base Price</mat-label>
-            <input matInput placeholder="Enter base price  here">        
+            <input formControlName="basePrice" matInput placeholder="Enter base price  ">        
         </mat-form-field>
     </form>
 </div>
 <div mat-dialog-action [align]="'end'">
     <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-    <button style="margin-left: 8px" mat-raised-button color="primary">Add Flight</button>
+    <!-- <button style="margin-left: 8px" mat-raised-button color="primary" (click)="addFlight()">Add Flight</button> -->
 </div>

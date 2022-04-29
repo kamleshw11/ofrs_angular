@@ -11,6 +11,6 @@ export interface Flight {
     arrivalTime:Time;
     stops:number;
     totalSeats:number;
-    feedback:string;
+    
     basePrice:number
 }
