@@ -34,8 +34,7 @@ const MY_FORMATS = {
   declarations: [
     AppComponent,
     NavbarComponent,
-    FlightComponent,
-    
+    FlightComponent,    
     UserSearchFlightComponent,
     AddFlightComponent
   ],
