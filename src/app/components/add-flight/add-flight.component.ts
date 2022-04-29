@@ -23,8 +23,7 @@ export class AddFlightComponent implements OnInit {
       arrivalTime:['',Validators.required],
       totalSeats:['',Validators.required],
       stops:['',Validators.required],
-      basePrice:['',Validators.required],
-            
+      basePrice:['',Validators.required],            
     });
   }
 }

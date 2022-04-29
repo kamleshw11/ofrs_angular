@@ -18,7 +18,7 @@ import { AddFlightComponent } from '../add-flight/add-flight.component';
   styleUrls: ['./flight.component.scss']
 })
 export class FlightComponent implements OnInit {
-  displayedColumns: string[] = ['flightId', 'flightName', 'source', 'destination','departureDate','departureTime','arrivalDate','arrivalTime','stops','totalSeats','feedback','basePrice'];
+  displayedColumns: string[] = ['flightId', 'flightName', 'source', 'destination','departureDate','departureTime','arrivalDate','arrivalTime','stops','totalSeats','basePrice'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
